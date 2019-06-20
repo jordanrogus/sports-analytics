@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flask app</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='src/style/navigation.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='src/style/index.css') }}">
+    </head>
+  <body class= "navigation-body">
+    <header class= "navigation-header">
+      <div class="navigation-container">
+        <h1 class="navigation-title">NFL Gambling Web App</h1>
+        <strong><nav>
+          <ul class="navigation-menu">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+          </ul>
+        </nav></strong>
+      </div>
+    </header>
+    <div class="navigation-container">
+        {% block content %}
+        {% endblock %}
+      </div>
+  </body>
+</html>
