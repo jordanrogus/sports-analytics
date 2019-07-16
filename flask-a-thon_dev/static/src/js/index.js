@@ -1,10 +1,21 @@
 "use strict";
 
-function get_nfl_reception_data(v) {
+function year_change(year) {
+  var attempts = document.getElementById('inputNumber').value
+  get_nfl_reception_data_test({attempt: parseFloat(attempts), year: parseFloat(year)})
+}
+
+function attempt_change(attempts) {
+  var year = document.getElementById('inputYear').value
+  get_nfl_reception_data_test({attempt: parseFloat(attempts), year: parseFloat(year)})
+}
+
+function get_nfl_reception_data_test(obj) {
+  
   $.ajax({
     method: 'POST',
     url: 'get-nfl-reception-data',
-    data: v.toString(),
+    data: JSON.stringify(obj),
     success: function success(data) {
       data = JSON.parse(data);
       console.log(data.__data__);
@@ -73,10 +84,14 @@ function get_nfl_reception_data(v) {
       }; // use configuration item and data specified to show chart
 
       eChartsTest.setOption(option);
+      document.getElementById('loader').style.display = 'none'
     },
     error: function error(err) {}
   });
+  document.getElementById('loader').style.display = 'block'
 }
 
 // Initialize at 10 pass attempts
-get_nfl_reception_data(10);
+// get_nfl_reception_data(10);
+
+get_nfl_reception_data_test({attempt: 10, year: 2016})

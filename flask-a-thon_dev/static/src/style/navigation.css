@@ -36,3 +36,18 @@
   color: #444;
   text-decoration: none;
 }
+
+.navigation-disclaimer-bar {
+  position:fixed;
+  width:100vw;
+  left:0;
+  bottom:0;
+}
+            
+.disclaimer {
+  text-align:right;
+  font-size: 0.5em;
+  font-style: italic;
+  background-color: #848484;
+  color: white;
+}

@@ -24,7 +24,9 @@ def about():
     
 @app.route('/get-nfl-reception-data', methods=['POST'])
 def get_nfl_reception_data():
-    testData_df = getNFLdata(int(request.get_data().decode('utf8')))
+    # Take out the second parameter
+    data = json.loads(request.get_data().decode('utf8'))
+    testData_df = getNFLdata(data['attempt'], data['year'])
     return_str = '{"__data__":' + str(testData_df.to_json(orient='records')) + '}'
     return return_str
 
