@@ -18,10 +18,24 @@
     <h1 class="home-header">Welcome to version one of the gambling site</h1>
     
     <label for="inputNumber" class="home-label-receptions">Input the minimum number of receptions to represent in the graph:</label>
-    <input type="number" name="inputNumber" id="inputNumber" min="1" class="home-input-receptions">
-    <button onclick="get_nfl_reception_data(document.getElementById('inputNumber').value)" class="home-button-receptions">Submit</button>
+    <input type="number" name="inputNumber" id="inputNumber" min="1" class="home-input-receptions" value="10">
+    <button onclick="attempt_change(document.getElementById('inputNumber').value)" class="home-button-receptions">Submit</button>
 
-    <div id="eChartsReceptions" style="width:1200px; height:400px;" class="home-echart-receptions"></div>
+    <label for="yearDropdown" class="home-label-year-dropdown">Determine which year of data to visualize:</label>
+    <select onChange="year_change(this.value)" class="home-input-year-dropdown" id="inputYear">
+        <option value="2009">2009</option>
+        <option value="2010">2010</option>
+        <option value="2011">2011</option>
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+        <option value="2016">2016</option>
+      </select>
+
+    <div id="eChartsReceptions" style="width:100vw; height:370px;" class="home-echart-receptions"></div>
+
+    <div style="position:fixed; top: 0; right: 0; bottom: 0; left: 0; background:rgba(0,0,0,0.5); display:none" id="loader">loading</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.min.js"></script>

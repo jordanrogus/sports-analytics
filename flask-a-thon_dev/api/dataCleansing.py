@@ -4,9 +4,14 @@ def perAttemptCalc(Attempt, Calculation):
     attempt = Attempt
     calculation = Calculation
     return (calculation / attempt)
-    
-def getNFLdata(minAttempts):
-    nflData = pd.read_csv('tables/data/NFL Play by Play 2016 (v3).csv', delimiter=',')
+
+# Take out the second parameter, change data to only one year and do not need to subset data by year
+def getNFLdata(minAttempts, year):
+    # Change the file
+    nflData = pd.read_csv('tables/data/NFL Play by Play 2009-2016 (v3).csv', delimiter=',')
+
+    # Subset data by year
+    nflData = nflData[nflData['Season'] == int(year)]
 
     # Subset offensive data to get pass data that is relevant (i.e. passes that are actually complete... duh)
     pass_data = nflData[nflData['PlayType'] == "Pass"]
