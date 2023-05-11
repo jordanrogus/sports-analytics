@@ -1,5 +1,5 @@
 # sports-analytics
-A repository to test building a full-stack application to do sports analysis.
+A repository to test building a full-stack application to do sports analysis levarging Python.
 
 To run the script click the app.py file.
 Then open the terminal (in VS Code open terminal from the top toolbar)
